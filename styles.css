@@ -1,7 +1,13 @@
+/* Reset & Base Layout */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -11,100 +17,45 @@ body {
     overflow-x: hidden;
 }
 
+/* Header & Navigation */
 header {
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-nav {
+nav ul {
     display: flex;
-    gap: 2rem;
+    gap: 30px;
+    list-style: none;
+    justify-content: center;
 }
 
 nav a {
     text-decoration: none;
     color: #fff;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: 0.3s ease;
+    border-radius: 5px;
 }
 
 nav a:hover {
-    color: #888;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-.sidebar {
-    position: fixed;
-    right: -350px;
-    top: 0;
-    width: 350px;
-    height: 100vh;
-    background-color: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    transition: right 0.3s ease;
-    z-index: 200;
-    overflow-y: auto;
-}
-
-.sidebar.active {
-    right: 0;
-}
-
-.sidebar h2 {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-}
-
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar ul li {
-    margin-bottom: 1.5rem;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.sidebar ul li a:hover {
-    color: #888;
-}
-
-.sidebar-trigger {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 100vh;
-    z-index: 150;
-    cursor: pointer;
-}
-
+/* Main Layout */
 main {
-    padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 4rem 2rem;
 }
 
+/* Hero Section */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -113,240 +64,101 @@ main {
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
     letter-spacing: -1px;
+    margin-bottom: 1rem;
 }
 
 .hero p {
+    color: #ddd;
     font-size: 1.25rem;
-    color: #888;
     margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background-color: #fff;
+    background: #fff;
     color: #000;
-    text-decoration: none;
+    padding: 0.75rem 2rem;
     border-radius: 8px;
+    text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #f0f0f0;
     transform: scale(1.05);
 }
 
+/* Content Sections */
 .content-section {
-    margin-top: 3rem;
-    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.02);
+    margin-top: 3rem;
+    padding: 2rem;
 }
 
 .content-section h2 {
-    margin-bottom: 1rem;
     font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .content-section p {
-    line-height: 1.6;
-    color: #ccc;
+    color: #ddd;
+    line-height: 1.75;
+    font-size: 1.05rem;
 }
 
-
-header {
+/* Layout for Evos / Decks / Cards */
+.row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'San Francisco', 'Helvetica Neue', sans-serif;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
 }
 
-.logo {
-    font-size: 24px;
+.column {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.column img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+/* Captions */
+.deck-caption,
+.card-caption {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 280px;
+    margin: 0 auto;
+    color: #ddd;
+}
+
+/* Card Data Table */
+.card-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.card-table th,
+.card-table td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    text-align: center;
+}
+
+.card-table th {
+    background-color: rgba(255, 255, 255, 0.1);
     font-weight: 600;
-    color: #fff;
-    letter-spacing: 0.5px;
 }
 
-nav {
-    flex-grow: 1;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    justify-content: center; /* Center the menu items */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px; /* Increased font size for better readability */
-    font-weight: 500;
-    padding: 10px 15px; /* Add padding for clickable area */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-}
-
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Subtle background on hover */
-    opacity: 0.9; /* Slightly reduce opacity on hover */
-}
-
-.social-media {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-.social-media img {
-    object-fit: contain;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.social-media a:hover img {
-    opacity: 1;
-}
-
-
-<style>
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 40px;
-        background-color: #000;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'San Francisco', 'Helvetica Neue', sans-serif;
-    }
-    
-    .logo {
-        font-size: 24px;
-        font-weight: 600;
-        color: #fff;
-        letter-spacing: 0.5px;
-    }
-    
-    nav {
-        flex-grow: 1; /* Allow nav to take available space */
-        text-align: center; /* Center the nav content */
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: center; /* Center the menu items */
-        list-style: none;
-        gap: 30px;
-    }
-    
-    nav a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-        transition: opacity 0.3s ease;
-    }
-    
-    nav a:hover {
-        opacity: 0.7;
-    }
-    
-    .social-media {
-        display: flex;
-        list-style: none;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .social-media img {
-        object-fit: contain;
-        opacity: 0.8;
-        transition: opacity 0.3s ease;
-    }
-    
-    .social-media a:hover img {
-        opacity: 1;
-    }
-</style>
-
- header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: #000;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'San Francisco', 'Helvetica Neue', sans-serif;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-        }
-        
-        nav a:hover {
-            opacity: 0.7;
-        }
-        
-        .social-media {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .social-media img {
-            object-fit: contain;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        
-        .social-media a:hover img {
-            opacity: 1;
-        }
-
-
-
-.text {
-    position: absolute;
-    margin-top: -1600px;
-    margin-left: 500px;
-    width: 500px;      
-    word-wrap: break-word; 
-}
-
-.text1 {
-    position: absolute;
-    margin-top: -1500px;
-    margin-left: 500px;
-    width: 500px;    
-    word-wrap: break-word; 
+.card-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
 }
