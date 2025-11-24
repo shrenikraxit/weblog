@@ -7,10 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <section class="intro-screen" id="top">
+        <div class="intro-content">
+            <h1>Clash Royale</h1>
+            <p>
+                The game of hidden minds and silent moves.
+            </p>
+<a href="#whatis" class="scroll-circle">⬇</a>
+        </div>
+    </section>
+
     <header>
         <nav style="text-align: center;">
             <ul style="display: inline-block; list-style-type: none; padding: 0; margin: 0 auto;">
-                <li style="display: inline; margin: 0 15px;"><a href="#whatis">What is Clash Royale?</a></li>
+                <li style="display: inline; margin: 0 15px;"><a href="#whatis">About Clash</a></li>
                 <li style="display: inline; margin: 0 15px;"><a href="#evos">Best Evos</a></li>
                 <li style="display: inline; margin: 0 15px;"><a href="#decks">Best Decks</a></li>
                 <li style="display: inline; margin: 0 15px;"><a href="#cards">Best Cards</a></li>
@@ -21,20 +31,10 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero" id="home">
-            <h1>Clash Royale</h1>
-            <p>
-                The game begins in silence — just eight cards and a chance to outthink your opponent.  
-                Every choice carries risk, and the first mistake often decides the battle.  
-                With the right timing, even a defense can become a victory.  
-                This page uncovers the evolutions, decks, and cards that turn strategy into wins.
-            </p>
-            <a href="#evos" class="cta-button">Let's Clash</a>
-        </section>
 
+    <main>
         <section class="content-section" id="whatis">
-            <h2>What Is Clash Royale?</h2>
+            <h2>About Clash</h2>
             <p>
                 Clash Royale is a real-time strategy game created by Supercell where two players battle on a small arena with three towers each. 
                 Every player brings a deck of eight cards made up of troops, spells, and buildings, and each card costs a certain amount of elixir to play.
@@ -234,6 +234,10 @@
                     Clash Royale Esports –  
                     <a href="https://esports.clashroyale.com" target="_blank">https://esports.clashroyale.com</a>
                 </li>
+                <li>
+                    DeckShop –  
+                    <a href="https://www.deckshop.pro/" target="_blank">https://www.deckshop.pro/</a>
+                </li>
             </ul>
         </section>
     </main>
@@ -242,3 +246,15 @@
     </footer>
 </body>
 </html>
+
+<script>
+    const sections = document.querySelectorAll('.content-section');
+    window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                section.classList.add('visible');
+            }
+        });
+    });
+</script>

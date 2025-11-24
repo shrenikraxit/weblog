@@ -1,4 +1,3 @@
-/* Reset & Base Layout */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +16,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Header & Navigation */
 header {
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
@@ -48,14 +46,12 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Main Layout */
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
 }
 
-/* Hero Section */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -89,7 +85,6 @@ main {
     transform: scale(1.05);
 }
 
-/* Content Sections */
 .content-section {
     background-color: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -109,7 +104,6 @@ main {
     font-size: 1.05rem;
 }
 
-/* Layout for Evos / Decks / Cards */
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -130,7 +124,6 @@ main {
     margin-bottom: 0.6rem;
 }
 
-/* Captions */
 .deck-caption,
 .card-caption {
     font-size: 0.95rem;
@@ -140,7 +133,6 @@ main {
     color: #ddd;
 }
 
-/* Card Data Table */
 .card-table {
     width: 100%;
     border-collapse: collapse;
@@ -161,4 +153,138 @@ main {
 
 .card-table tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+.content-section {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.column img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+}
+
+.content-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+header {
+    transition: backdrop-filter 0.3s ease;
+}
+
+body:has(section:target) header {
+    backdrop-filter: blur(18px);
+}
+
+.column {
+    flex: 1 1 200px;
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.column:hover {
+    transform: scale(1.03);
+}
+
+.intro-screen {
+    height: 100vh;
+    width: 100%;
+    background-image: url('clash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.intro-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
+}
+
+.intro-content {
+    position: relative;
+    text-align: center;
+    max-width: 700px;
+    padding: 0 1.5rem;
+}
+
+.intro-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ddd;
+    margin-bottom: 2rem;
+}
+
+.scroll-circle {
+    position: absolute;
+    bottom: -350px;   
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.scroll-circle:hover {
+    transform: translateX(-50%) scale(1.1);
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.content-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.7s ease;
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
